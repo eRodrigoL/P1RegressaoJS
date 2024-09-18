@@ -80,5 +80,25 @@ workbook.SheetNames.forEach((sheetName) => {
   });
 });
 
+// Calcular a média dos coeficientes
+const media = {
+  planilha: "Média",
+  m: (
+    resultados.reduce((sum, resultado) => sum + resultado.m, 0) /
+    resultados.length
+  ).toFixed(3),
+  b: (
+    resultados.reduce((sum, resultado) => sum + resultado.b, 0) /
+    resultados.length
+  ).toFixed(3),
+  r2: (
+    resultados.reduce((sum, resultado) => sum + resultado.r2, 0) /
+    resultados.length
+  ).toFixed(3),
+};
+
 // Exibir a tabela de resultados
 console.table(resultados);
+
+// Adicionar e exibir a linha de média
+console.table([media]);
